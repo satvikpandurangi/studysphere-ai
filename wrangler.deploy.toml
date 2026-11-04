@@ -1,0 +1,20 @@
+name = "studysphere-api"
+main = "worker-dist/worker-bundle.js"
+compatibility_date = "2026-09-01"
+no_bundle = true
+
+[vars]
+APP_ORIGIN = "https://studysphere-app.satvikjee2526.workers.dev"
+AI_MODEL = "openai/gpt-oss-20b"
+ZERO_COST_MODE = "true"
+AI_STUDENT_DAILY_LIMIT = "3"
+AI_SCHOOL_DAILY_LIMIT = "100"
+AI_PLATFORM_DAILY_LIMIT = "100"
+API_STUDENT_DAILY_LIMIT = "300"
+API_OTHER_DAILY_LIMIT = "1000"
+API_PLATFORM_DAILY_LIMIT = "90000"
+PDF_MAX_BYTES = "15000000"
+STORAGE_BUCKET = "lesson-assets"
+STORAGE_LIMIT_BYTES = "800000000"
+SUPABASE_URL = "https://flsckscpvqqyyqvsyjwp.supabase.co"
+SUPABASE_PUBLISHABLE_KEY = "sb_publishable_0T7HIaw9SGcenm-a_Q1IdA_d5guvpGn"

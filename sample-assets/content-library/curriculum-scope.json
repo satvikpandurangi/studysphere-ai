@@ -1,0 +1,17 @@
+{
+  "academicYear": "2026-27",
+  "medium": "English",
+  "boards": ["CBSE", "KSEAB"],
+  "standards": [1,2,3,4,5,6,7,8,9,10],
+  "schoolLanguageSelection": {"status":"pending_school_prescription","selected":[]},
+  "requirement": "Every applicable subject, prescribed language/course variant, chapter, topic and required practical/activity for every selected standard; original test fixtures do not count as syllabus coverage.",
+  "officialSources": [
+    {"authority":"CBSE Academic Unit","url":"https://cbseacademic.nic.in/curriculum_2027.html","status":"secondary_subject_index_verified","grades":[9,10],"use":"Subject/course/syllabus metadata; not textbook rehosting"},
+    {"authority":"NCERT","url":"https://ncert.nic.in/textbook.php","status":"live_catalog_unavailable_from_this_environment","use":"Official textbook/reference catalogue; software bundling not approved","softwareImportAllowed":false},
+    {"authority":"Karnataka Textbook Society","url":"https://www.ktbs.kar.nic.in/New/index.html#!/textbook","status":"portal_timed_out_current_policy_and_book_inventory_unverified","softwareImportAllowed":false},
+    {"authority":"DSERT Karnataka","url":"https://dsert.karnataka.gov.in/english","status":"portal_unavailable_from_this_environment","use":"State curriculum/academic authority; not interchangeable with an exam blueprint"},
+    {"authority":"KSEAB","url":"https://kseab.karnataka.gov.in/en","status":"exam_authority_portal_reachable","use":"Exam information; not proof of all Standards 1–10 textbook chapters"}
+  ],
+  "coverageStatus": "incomplete_do_not_claim_full_syllabus",
+  "providerImportStatus": "held_pending_curriculum_inventory"
+}

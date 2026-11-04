@@ -1,0 +1,15 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
+import './styles.css'
+import './authoring.css'
+import './search.css'
+import './maps.css'
+import './plan.css'
+import './parent-report.css'
+import './pilot.css'
+import 'katex/dist/katex.min.css'
+import '@xyflow/react/dist/style.css'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><BrowserRouter><App /></BrowserRouter></React.StrictMode>)

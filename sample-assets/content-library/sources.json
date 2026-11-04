@@ -1,0 +1,88 @@
+{
+  "version": "2026-10-29-v1",
+  "reviewedOn": "2026-10-29",
+  "purpose": "Product testing; not approved Indian-board curriculum",
+  "publisherLicenseEvidence": "https://www.siyavula.com/read",
+  "maximumDownloadBytes": 125000000,
+  "sources": [
+    {
+      "id": "siyavula-maths-10",
+      "title": "Mathematics Grade 10",
+      "creator": "Siyavula",
+      "subject": "Mathematics",
+      "grade": 10,
+      "format": "epub",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationAllowed": true,
+      "url": "https://www.siyavula.com/downloads/books/maths/Gr10_Mathematics_Learner_Eng_CC-BY.epub",
+      "maximumBytes": 50000000,
+      "editionNoticeVerified": true
+    },
+    {
+      "id": "siyavula-science-4",
+      "title": "Natural Sciences and Technology Grade 4",
+      "creator": "Siyavula",
+      "subject": "Science",
+      "grade": 4,
+      "format": "epub",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationAllowed": true,
+      "url": "https://www.siyavula.com/downloads/books/science/Gr4_NaturalSciences_Learner_Eng_CC-BY.epub",
+      "maximumBytes": 45000000,
+      "editionNoticeVerified": true
+    },
+    {
+      "id": "siyavula-science-6",
+      "title": "Natural Sciences and Technology Grade 6",
+      "creator": "Siyavula",
+      "subject": "Science",
+      "grade": 6,
+      "format": "epub",
+      "license": "CC-BY-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationAllowed": true,
+      "url": "https://www.siyavula.com/downloads/books/science/Gr6_NaturalSciences_Learner_Eng_CC-BY.epub",
+      "maximumBytes": 35000000,
+      "editionNoticeVerified": true
+    }
+  ],
+  "excluded": [
+    {
+      "source": "Vedantu",
+      "reason": "No permission to bulk copy/rehost verified; attribution or watermark is insufficient",
+      "terms": "https://www.vedantu.com/tnc"
+    },
+    {
+      "source": "Unacademy",
+      "reason": "No permission to redistribute its study-material library verified",
+      "terms": "https://unacademy.com/notes-terms"
+    },
+    {
+      "source": "Physics Wallah",
+      "reason": "No permission to mirror the proprietary content library verified",
+      "terms": "https://www.pw.live/terms-and-conditions"
+    },
+    {
+      "source": "OpenStax current editions",
+      "reason": "Current publisher licensing includes noncommercial/share-alike restrictions; not assumed suitable for the intended SaaS",
+      "terms": "https://help.openstax.org/s/article/Openstax-textbook-licensing-and-customization"
+    },
+    {
+      "source": "Siyavula Grade 9 EPUB",
+      "reason": "71408313-byte source exceeds this run's per-file allowance"
+    },
+    {
+      "source": "Siyavula IT/CAT",
+      "reason": "Publisher lists these books as closed copyright"
+    },
+    {
+      "source": "Mathematics Grade 7A — branded original",
+      "url": "https://www.siyavula.com/downloads/books/maths/Gr7A_Mathematics_Learner_Eng.pdf",
+      "reason": "Embedded copyright page states CC BY-NC 4.0 and forbids profit-seeking copies, despite catalog CC-BY-ND label. Product use not approved; retained only in ignored rights-review quarantine.",
+      "license": "CC-BY-NC-4.0",
+      "softwareImportAllowed": false
+    }
+  ]
+}

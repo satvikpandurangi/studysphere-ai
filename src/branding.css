@@ -1,0 +1,20 @@
+/* Scope customer color changes to existing components; keep geometry and typography. */
+.institution-theme .button-primary{background:var(--institution-primary,#2167e9)}
+.institution-theme .button-primary:hover:not(:disabled){background:var(--institution-primary,#1457d4);filter:brightness(.9)}
+.institution-theme .brand-icon,.institution-theme .empty-symbol{color:var(--institution-primary,#2167e9)}
+.institution-theme .nav-item:hover,.institution-theme .nav-item.active{color:color-mix(in srgb,var(--institution-primary) 85%,black)}
+.institution-theme a:not(.nav-item):not(.button),.institution-theme .text-button:not(.danger){color:var(--institution-primary,#1261df)}
+.institution-theme .sidebar-message svg{color:var(--institution-accent,#15977e)}
+.institution-logo{width:34px;height:34px;object-fit:contain;flex:none}
+.brand>div:last-of-type{min-width:0}.brand strong{overflow-wrap:anywhere}
+.institution-support{margin:0 7px 18px}.institution-support small{display:block;color:#687a99;font-size:11px;line-height:1.4;margin-top:7px}
+.institution-contact{display:flex;flex-direction:column;gap:7px;margin-top:12px;font-size:12px;overflow-wrap:anywhere}
+.branding-picker{margin-bottom:20px;max-width:600px}.branding-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr);gap:24px}
+.branding-fields{border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:17px;min-width:0}.branding-fields input[type=color]{height:46px;padding:5px}
+.branding-preview{align-self:start;position:sticky;top:20px}.branding-preview .brand{margin:8px 0 16px}.branding-preview .sidebar-message{background:white;border:1px solid #dae4f2}
+.sidebar{overflow-y:auto}.sidebar .brand{margin-bottom:22px}
+@media(max-width:950px){.branding-layout{grid-template-columns:1fr}.branding-preview{position:static}}
+
+.brand>div{min-width:0}.brand strong{overflow-wrap:anywhere}.sidebar-error{color:#a52831;font-size:12px;line-height:1.5;margin:14px 7px 0}.logout:disabled{opacity:.6;cursor:wait}
+
+.sidebar{overflow-y:auto;overscroll-behavior:contain}

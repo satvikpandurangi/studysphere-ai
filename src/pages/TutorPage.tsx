@@ -1,0 +1,20 @@
+import { useEffect, useState, type FormEvent } from 'react'
+import { ArrowRight, Sparkles } from 'lucide-react'
+import { useAuth } from '../context/AuthContext'
+import { workerFetch } from '../lib/api'
+import { requireSupabase } from '../lib/supabase'
+import { Button, ErrorNotice, Loading } from '../components/Ui'
+import { Markdown } from '../components/Markdown'
+import { StudentGate } from '../components/StudentGate'
+
+type Citation={title:string;contentId:string;href:string}
+type Message={role:'user'|'assistant';content:string;citations?:Citation[]}
+export function TutorPage(){return <StudentGate>{()=><TutorInner/>}</StudentGate>}
+function TutorInner(){
+  const {user}=useAuth(); const [messages,setMessages]=useState<Message[]>([]); const [conversationId,setConversationId]=useState<string|null>(null)
+  const [input,setInput]=useState('');const [busy,setBusy]=useState(false);const [loading,setLoading]=useState(true);const [error,setError]=useState<string|null>(null)
+  useEffect(()=>{let live=true;(async()=>{const client=requireSupabase();const {data:conversation,error}=await client.from('ai_conversations').select('id').eq('student_id',user!.id).order('created_at',{ascending:false}).limit(1).maybeSingle();if(error)throw error;if(conversation){const {data:history,error:hError}=await client.from('ai_messages').select('role,content,citations').eq('conversation_id',conversation.id).order('created_at');if(hError)throw hError;if(live){setConversationId(conversation.id);setMessages((history||[]) as Message[])}}})().catch(e=>{if(live)setError(e instanceof Error?e.message:String(e))}).finally(()=>{if(live)setLoading(false)});return()=>{live=false}},[user?.id])
+  async function send(e:FormEvent){e.preventDefault();if(!input.trim())return;const question=input.trim();const next=[...messages,{role:'user' as const,content:question}];setMessages(next);setInput('');setBusy(true);setError(null);try{const result=await workerFetch<{answer:string;citations:Citation[];conversationId?:string}>('/ai/tutor',{question,conversationId});setMessages([...next,{role:'assistant',content:result.answer,citations:result.citations}]);if(result.conversationId)setConversationId(result.conversationId)}catch(e){setError(e instanceof Error?e.message:String(e))}finally{setBusy(false)}}
+  async function clear(){if(conversationId){try{await workerFetch(`/ai/conversation/${conversationId}`,undefined,'DELETE')}catch(e){setError(e instanceof Error?e.message:String(e));return}}setMessages([]);setConversationId(null)}
+  return <div className="page tutor-page"><div className="section-heading page-heading"><div><h1>Your AI tutor</h1><p>Ask a question. We’ll work through it together using your lessons.</p></div><Button variant="secondary" onClick={clear} disabled={busy||!messages.length}>Clear chat</Button></div><div className="tutor-surface"><div className="tutor-messages">{loading?<Loading label="Loading your conversation…"/>:!messages.length?<div className="tutor-welcome"><Sparkles size={32}/><h2>What are you curious about?</h2><p>Ask about a lesson, request a hint, or tell me where you feel stuck.</p><div className="suggestions">{['Help me understand fractions','Quiz me on a topic','Explain this in simpler words'].map(s=><button key={s} onClick={()=>setInput(s)}>{s}</button>)}</div></div>:messages.map((m,i)=><div key={i} className={`message message-${m.role}`}><div className="message-bubble"><Markdown text={m.content}/>{m.citations?.length?<div className="citations"><strong>StudySphere sources</strong>{m.citations.map(c=><a key={c.contentId} href={c.href}>{c.title}</a>)}</div>:null}</div></div>)}{busy&&<Loading label="Thinking through your question…"/>}</div><form className="tutor-form" onSubmit={send}><ErrorNotice message={error}/><div><input value={input} onChange={e=>setInput(e.target.value)} maxLength={1000} placeholder="Ask about a lesson…" aria-label="Question for tutor"/><Button disabled={busy||!input.trim()}>Ask <ArrowRight size={17}/></Button></div><small>AI can make mistakes. Check lesson sources and ask your teacher when unsure.</small></form></div></div>
+}

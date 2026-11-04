@@ -1,0 +1,7 @@
+/* Extend existing form/card styling without changing the shared visual language. */
+.enrollment-panel{margin-top:24px}.enrollment-panel h2,.invite-form h2{display:flex;align-items:center;gap:9px}
+.enrollment-list{display:flex;flex-direction:column}.enrollment-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid #e9eff6;padding:18px 0}
+.enrollment-row>div:first-child{flex:1;min-width:180px;overflow-wrap:anywhere}.enrollment-row h3{font-size:15px;margin:0 0 5px}.enrollment-row p{margin:0 0 5px;color:#6b7f9c;font-size:13px}.enrollment-row small{color:#7384a0;font-size:12px}
+.enrollment-confirm{flex-basis:100%}.enrollment-code{margin-top:16px}.enrollment-code textarea{font-family:monospace;overflow-wrap:anywhere}.enrollment-panel>.section-heading{flex-wrap:wrap;gap:12px}.enrollment-panel>.section-heading>div{flex:1;min-width:200px}
+.enrollment-staff-form{display:flex;flex-direction:column;gap:12px}
+@media(max-width:760px){.enrollment-row{align-items:flex-start}.enrollment-confirm .button-row{flex-wrap:wrap}}

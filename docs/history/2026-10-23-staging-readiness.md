@@ -1,0 +1,11 @@
+# Staging verification preparation — 23 October 2026
+
+No separate staging project or test credentials were configured. Read-only checks observed HTTP 404 at the historical frontend login, HTTP 200 at the historical API health route, and DNS resolution failure for the configured Supabase hostname. No hosted deployment, migration, account/fixture creation, Storage change or paid provisioning was performed; these endpoint results do not establish the underlying cause or schema state.
+
+Strengthened the three hosted tenant cases with live verified identities/stored roles, four distinct fixture accounts, nonempty student-owned records and symmetric denial, two existing school-scoped drafts, permitted published-question reads and exact privilege denial for answer/explanation columns. Added Student B and School B editor tokens to the contract, bringing it to nine inputs. Added shared evidence checks and a dedicated read-only `test:hosted` runner that fails closed on missing inputs instead of treating skips as hosted success. Reports stay ignored and contain missing names, not credential values.
+
+Added the [staging setup and fixture guide](../launch/staging-verification.md) and blank credential template. Actual hosted execution remains pending a selected reachable staging environment and synthetic caller credentials. Local verification does not approve the pilot.
+
+Validation on 23 October: `npm run pilot:check` passed build, lint, Worker type/bundle checks, 117 local tests and documentation links; all three hosted cases skipped. The dedicated `npm run test:hosted` returned the expected missing-input exit 2, wrote `hostedVerified:false` and made no network requests. Strict TypeScript checks also passed for the changed hosted suite and evidence-gate tests. No hosted pass is asserted.
+
+The owner then selected the existing configured Supabase project for application use. A fresh read-only Auth health check returned 401 without a key; health/settings both returned 200 with the existing local publishable key. Initialized ignored `.env.staging.local` with that project/key, leaving synthetic caller/fixture fields blank. No migrations, remote fixtures or hosting changes were made. Cloudflare remains configured; Vercel was evaluated as an alternative, not adopted.
